@@ -1,0 +1,64 @@
+---
+  - name: Filebeat Installation
+    hosts: webservers
+    remote_user: sysadmin
+    become: true
+    tasks:
+
+# Filebeat
+    - name: download .deb file from url
+      command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.6.1-amd64.deb
+
+    - name: Install downloaded .deb file with command
+      command: dpkg -i filebeat-7.6.1-amd64.deb
+    
+    - name: Copy file from ansible container to web server
+      copy: 
+        src: /etc/ansible/filebeat-config.yml
+        dest: /etc/filebeat/filebeat.yml
+
+    - name: run filebeat modules enable system
+      command: filebeat modules enable system
+
+    - name: run filebeat setup
+      command: filebeat setup
+
+    - name: run service filebeat start
+      command: service filebeat start
+   
+    - name: enable filebeat on boot
+      systemd:
+        name: filebeat
+        enabled: yes
+
+# Metricbeat
+    - name: download metricbeat .deb file
+      command: curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.6.1-amd64.deb
+
+    - name: Install downloaded .deb file with command
+      command: dpkg -i metricbeat-7.6.1-amd64.deb
+
+    - name:
+      copy:
+        src: /etc/ansible/metricbeat-config.yml
+        dest: /etc/metricbeat/metricbeat.yml       
+      
+    - name: run metricbeat modules enable docker
+      command: metricbeat modules enable docker
+
+    - name: run metricbeat setup
+      command: metricbeat setup
+
+    - name: run metricbeat start
+      command: service metricbeat start
+
+    - name: enable metricbeat on boot
+      systemd:
+        name: metricbeat
+        enabled: yes
+
+
+
+
+
+
