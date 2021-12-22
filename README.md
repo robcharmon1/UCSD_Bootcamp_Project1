@@ -7,7 +7,7 @@ The files in this repository were used to configure the network depicted below.
 
 ![alt text](Diagrams/Cloud_Project_Network.drawio.png)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, the various individual files may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to recreate the entire deployment pictured above. Alternatively, the various individual files may be used to install only certain pieces of it, such as Filebeat.
 
 ![Ansible Playbook to Configure DMVA Container](Ansible/my_playbook.yml)
 
