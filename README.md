@@ -7,7 +7,7 @@ The files in this repository were used to configure the network depicted below.
 
 ![alt text](Diagrams/Cloud_Project_Network.drawio.png)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, the various individual files may be used to install only certain pieces of it, such as Filebeat.
 
 ![Ansible Playbook to Configure DMVA Container](Ansible/my_playbook.yml)
 
@@ -97,13 +97,11 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the Ansible playbook file project1_playbook.yml to the control node at the location /etc/ansible.
-- Update the playbook file to include the desired host group name and username.
-- Run the playbook, and navigate to the puclic IP address from a web browser to check that the installation worked as expected.
+- Copy the desired playbook file (depending on the need to configure DVWA, ELK, or Filebeat/Metricbeat) to the control node at the location /etc/ansible.
+- See above for links to each playbook file for various applications.
+- Update the playbook file to include the desired host group name (consisting of the machines to configure) and remote_user.
+- The playbook file can be updated with: vim playbookname.sh
+- Run the playbook, and navigate to the puclic IP address of the desired machine from a web browser at the appropriate port (depending on application) to check that the installation worked as expected.
+- I.E.  http://[your.ELK-VM.External.IP]:5601/app/kibana
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
