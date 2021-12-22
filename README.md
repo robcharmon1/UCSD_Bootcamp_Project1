@@ -13,6 +13,8 @@ These files have been tested and used to generate a live ELK deployment on Azure
 
 ![Ansible Playbook to Congigure ELK Container](Ansible/project1_playbook.yml)
 
+![Ansible Playbook to Congigure Filebeat & Metricbeat](Ansible/filebeat-playbook.yml)
+
 This document contains the following details:
 - Description of the Topology
 - Access Policies
@@ -88,15 +90,16 @@ We have installed the following Beats on these machines:
 - Metricbeat
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- Filbeat collects data about the file system. For example, when a file was last edited.
+- Metricbeat collects data about machine metrics, such as the CPU usage of the monitored machine.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the Ansible playbook file project1_playbook.yml to the control node at the location /etc/ansible.
+- Update the playbook file to include the desired host group name and username.
+- Run the playbook, and navigate to the puclic IP address from a web browser to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_
