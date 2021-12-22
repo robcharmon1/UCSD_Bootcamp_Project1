@@ -11,9 +11,9 @@ These files have been tested and used to generate a live ELK deployment on Azure
 
 ![Ansible Playbook to Configure DMVA Container](Ansible/my_playbook.yml)
 
-![Ansible Playbook to Congigure ELK Container](Ansible/project1_playbook.yml)
+![Ansible Playbook to Configure ELK Container](Ansible/project1_playbook.yml)
 
-![Ansible Playbook to Congigure Filebeat & Metricbeat](Ansible/filebeat-playbook.yml)
+![Ansible Playbook to Configure Filebeat & Metricbeat](Ansible/filebeat-playbook.yml)
 
 This document contains the following details:
 - Description of the Topology
